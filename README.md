@@ -589,7 +589,7 @@ The frontend sends user questions to the FastAPI backend and displays the genera
 ## RAG Questions
 
 ```text
-What are the main attractions in Singapore?
+Question:What are the main attractions in Singapore?
 Response: 
 ### Knowledge Base Facts
 
@@ -628,7 +628,7 @@ Intent: RAG | MCP: None | Sources: Essential Singapore Travel Information, Singa
 ```
 
 ```text
-How can a tourist travel around Singapore?
+Question:How can a tourist travel around Singapore?
 Response:
 ### Knowledge Base Facts
 
@@ -664,7 +664,7 @@ Intent: RAG | MCP: None | Sources: Singapore — Travel guide at Wikivoyage, Ess
 ### Weather
 
 ```text
-What is the current weather in Singapore?
+Question:What is the current weather in Singapore?
 Response:
 ### Knowledge Base Facts
 * No knowledge-base context was retrieved for this query.
@@ -698,7 +698,7 @@ Intent: WEATHER_MCP | MCP: get_singapore_weather (success) | Sources: None
 ```
 
 ```text
-Is it raining in Singapore right now?
+Question:Is it raining in Singapore right now?
 Response:
 ### Knowledge Base Facts
 * The knowledge base does not contain real-time weather information, and no knowledge-base context was retrieved for this query.
@@ -724,7 +724,7 @@ Intent: WEATHER_MCP | MCP: get_singapore_weather (success) | Sources: None
 ### Currency
 
 ```text
-Convert INR 50,000 to SGD.
+Question:Convert INR 50,000 to SGD.
 Response:
 ### Current Information (MCP)
 *Tool used: CURRENCY_MCP (Frankfurter)*
@@ -736,7 +736,7 @@ Intent: CURRENCY_MCP | MCP: convert_currency (success) | Sources: None
 ```
 
 ```text
-Convert USD 1,000 to SGD.
+Question:Convert USD 1,000 to SGD.
 Response:
 ### Current Information (MCP)
 *Tool used: CURRENCY_MCP (Frankfurter)*
@@ -751,12 +751,7 @@ Intent: CURRENCY_MCP | MCP: convert_currency (success) | Sources: None
 ## RAG + MCP Questions
 
 ```text
-What are the best attractions to visit in Singapore today,
-and what is the current weather?
-```
-
-```text
-Create a 7-day Singapore itinerary and convert INR 50,000
+Question:Create a 7-day Singapore itinerary and convert INR 50,000
 to SGD.
 Response:
 ### Current Information (MCP)
@@ -826,7 +821,7 @@ Intent: RAG + CURRENCY_MCP | MCP: convert_currency (success) | Sources: Essentia
 ```
 
 ```text
-What should I do in Singapore today based on the attractions
+Question:What should I do in Singapore today based on the attractions
 in the knowledge base and the current weather?
 Response:
 ### Knowledge Base Facts
@@ -936,6 +931,12 @@ This project demonstrates:
 ---
 
 # Important Commands
+
+### Install the required Python dependencies by running:
+
+```bash
+python pip install -r requirements.txt
+```
 
 ### Download/update knowledge-base documents
 

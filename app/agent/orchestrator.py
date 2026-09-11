@@ -1,10 +1,6 @@
 import json
 from typing import Any
-
 from langchain_google_genai import ChatGoogleGenerativeAI
-
-#from langchain_openai import ChatOpenAI
-
 from app.agent.prompts import ANSWER_PROMPT
 from app.agent.router import route_question
 from app.config import get_settings
@@ -148,11 +144,6 @@ async def answer_question(
     conversation_context = memory.as_text(session_id)
 
     settings = get_settings()
-    # model = ChatOpenAI(
-    #     model=settings.openai_chat_model,
-    #     temperature=0.2,
-    #     api_key=settings.openai_api_key,
-    # )
     model = ChatGoogleGenerativeAI(
             model=settings.gemini_chat_model,
             temperature=0,

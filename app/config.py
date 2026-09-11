@@ -1,20 +1,17 @@
 from functools import lru_cache
-
+from dotenv import load_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
 
+# Load variables from .env
+load_dotenv()
 
 class Settings(BaseSettings):
-    app_name: str = "AI Travel Planning Assistant"
-    app_env: str = "development"
-
-    # LLM model:- OpenAI
-    #openai_api_key: str
-    #openai_chat_model: str = "gpt-4o-mini"
-    #openai_embedding_model: str = "text-embedding-3-small"
+    app_name: str = os.getenv("APP_NAME", "")
+    app_env: str = os.getenv("APP_ENV", "")
 
     ## LLM model:- GenAI
-    
-    gemini_api_key:str="gemini_key"
+    gemini_api_key:str= os.getenv("GEMINI_API_KEY", "")
     gemini_chat_model:str="gemini-3.7-flash"
     
 

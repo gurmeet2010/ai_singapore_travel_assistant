@@ -1,17 +1,26 @@
 import os
 
 from google import genai
+from dotenv import load_dotenv
 
 from app.rag.retriever import retrieve_documents
+
+# --------------------------------------------------------------------------- # 
+# 1. Load environment variables #
+load_dotenv() 
+ 
 
 
 # ---------------------------------------------------------------------------
 # 1. Gemini Client
 # ---------------------------------------------------------------------------
 
-client = genai.Client(
-    api_key="gemini_key"
-)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") 
+
+if not GEMINI_API_KEY: 
+    raise ValueError( "GEMINI_API_KEY is not configured in the .env file" ) 
+
+client = genai.Client( api_key = GEMINI_API_KEY )
 
 MODEL_NAME = "gemini-3.8-flash"
 
